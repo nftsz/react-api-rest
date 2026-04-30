@@ -95,8 +95,8 @@ Implemente um módulo de **Galeria de Imagens** utilizando os conceitos aprendid
 
 ### 📌 **Requisitos da Galeria:**
 
-- [ ] Criar uma nova entidade/modelo de **Galeria** no backend (com título, descrição e imagem).
-- [ ] Configurar a API de CRUD para a Galeria (usar Django REST Framework).
+- [x] Criar uma nova entidade/modelo de **Galeria** no backend (com título, descrição e imagem).
+- [x] Configurar a API de CRUD para a Galeria (usar Django REST Framework).
 - [ ] No frontend, criar:
   - [ ] Página de listagem de imagens (Dashboard).
   - [ ] Página de cadastro/edição de uma nova imagem.
