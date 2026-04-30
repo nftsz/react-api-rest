@@ -1,12 +1,12 @@
 from django.conf import settings
-from myapp.models import Product
+from myapp.models import Product, Gallery
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 from rest_framework_simplejwt.serializers import TokenRefreshSerializer
 from rest_framework_simplejwt.views import (TokenObtainPairView,
                                             TokenRefreshView)
 
-from .serializers import CookieTokenRefreshSerializer, ProductSerializer
+from .serializers import CookieTokenRefreshSerializer, ProductSerializer, GallerySerializer
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -36,7 +36,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
                 key="refresh_token",
                 value=refresh_token,
                 httponly=True,
-                secure=settings.SECURE_COOKIE, 
+                secure=settings.SECURE_COOKIE,
                 samesite="Lax",
                 max_age=30 * 24 * 60 * 60,  # 30 dias
             )
@@ -45,3 +45,8 @@ class CustomTokenObtainPairView(TokenObtainPairView):
 
 class CustomTokenRefreshView(TokenRefreshView):
     serializer_class = CookieTokenRefreshSerializer
+
+
+class GalleryViewSet(viewsets.ModelViewSet):
+    queryset = Gallery.objects.all()
+    serializer_class = GallerySerializer
