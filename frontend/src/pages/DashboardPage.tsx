@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
+import type { Product } from "../lib/types/types";
 
 function DashboardPage() {
   const navigate = useNavigate();

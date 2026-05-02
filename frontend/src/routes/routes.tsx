@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, type JSX } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useAuth } from "../lib/context/AuthContext";
 
@@ -8,17 +8,18 @@ const DashboardPage = lazy(() => import("../pages/DashboardPage"));
 const ProductFormPage = lazy(() => import("../pages/ProductFormPage"));
 const ProductDetailPage = lazy(() => import("../pages/ProductDetailPage"));
 
+const GalleryPage = lazy(() => import("../pages/GalleryPage"));
+const GalleryFormPage = lazy(() => import("../pages/GalleryFormPage"));
+const GalleryDetailPage = lazy(() => import("../pages/GalleryDetailPage"));
 
 function PrivateRoute({ children }: { children: JSX.Element }) {
   const { isAuthenticated } = useAuth();
 
   if (isAuthenticated === null) {
-    // Ainda validando, bloqueia tudo!
     return <div>Verificando sessão...</div>;
   }
 
   if (isAuthenticated === false) {
-    // Sessão inválida, redireciona sem renderizar nada
     window.location.href = "/login";
     return null;
   }
@@ -31,6 +32,7 @@ export function AppRoutes() {
     <Suspense fallback={<p>Carregando...</p>}>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
+
         <Route
           path="/"
           element={
@@ -39,6 +41,7 @@ export function AppRoutes() {
             </PrivateRoute>
           }
         />
+
         <Route
           path="/products/new"
           element={
@@ -47,6 +50,7 @@ export function AppRoutes() {
             </PrivateRoute>
           }
         />
+
         <Route
           path="/products/:id"
           element={
@@ -55,11 +59,50 @@ export function AppRoutes() {
             </PrivateRoute>
           }
         />
+
         <Route
           path="/products/:id/edit"
           element={
             <PrivateRoute>
               <ProductFormPage />
+            </PrivateRoute>
+          }
+        />
+
+        {/* ROTAS DA GALLERY */}
+
+        <Route
+          path="/gallery"
+          element={
+            <PrivateRoute>
+              <GalleryPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/gallery/new"
+          element={
+            <PrivateRoute>
+              <GalleryFormPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/gallery/:id"
+          element={
+            <PrivateRoute>
+              <GalleryDetailPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/gallery/:id/edit"
+          element={
+            <PrivateRoute>
+              <GalleryFormPage />
             </PrivateRoute>
           }
         />
