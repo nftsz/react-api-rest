@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const validateSession = async () => {
       try {
-        await api.get("/api/v1/products/");
+        await api.get("/api/v1/gallery/");
         setIsAuthenticated(true);
       } catch (error: any) {
         setIsAuthenticated(false);

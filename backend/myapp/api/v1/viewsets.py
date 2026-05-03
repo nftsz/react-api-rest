@@ -1,17 +1,9 @@
 from django.conf import settings
-from myapp.models import Product, Gallery
-from rest_framework import status, viewsets
-from rest_framework.response import Response
-from rest_framework_simplejwt.serializers import TokenRefreshSerializer
+from myapp.models import Gallery
+from rest_framework import viewsets
 from rest_framework_simplejwt.views import (TokenObtainPairView,
                                             TokenRefreshView)
-
-from .serializers import CookieTokenRefreshSerializer, ProductSerializer, GallerySerializer
-
-
-class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+from .serializers import CookieTokenRefreshSerializer, GallerySerializer
 
 
 class CustomTokenObtainPairView(TokenObtainPairView):

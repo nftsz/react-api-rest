@@ -1,10 +1,9 @@
 from django.contrib import admin
 
-from .models import Product
+from .models import Gallery
 
-
-@admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "price", "created_at",)
-    search_fields = ("name", "price", "created_at",)
-    list_filter = ("name", "price", "created_at",)
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+    list_display = ("name", "description", "image_url", "created_at",)
+    search_fields = ("name", "created_at",)
+    list_filter = ("name", "created_at",)
