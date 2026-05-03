@@ -37,44 +37,56 @@ function GalleryDetailPage() {
 
   return (
     <div className="flex justify-center items-center min-h-screen p-4">
-      <div className="w-full max-w-3xl bg-white shadow-md rounded p-8 space-y-6 text-center">
-        <h1 className="text-3xl font-bold">Detalhes da Imagem</h1>
+      <div className="w-full max-w-4xl bg-white shadow-md rounded-xl overflow-hidden">
+        <div className="flex flex-col md:flex-row">
+          {/* Imagem - lado esquerdo */}
+          {gallery.image_url && (
+            <div className="md:w-2/5 bg-gray-100">
+              <div className="aspect-square w-full">
+                <img
+                  src={gallery.image_url}
+                  alt={gallery.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          )}
 
-        {gallery.image && (
-          <div className="flex justify-center">
-            <img
-              src={gallery.image}
-              alt={gallery.title}
-              className="w-full max-w-lg h-auto object-contain rounded"
-            />
+          {/* Conteúdo - lado direito */}
+          <div className="flex-1 p-6 md:p-8 flex flex-col justify-between">
+            <div>
+              <h1 className="text-2xl md:text-3xl text-gray-700 font-bold mb-4">
+                {gallery.name}
+              </h1>
+
+              <p className="text-gray-700 leading-relaxed mb-6">
+                {gallery.description}
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button
+                onClick={() => navigate(`/gallery/${gallery.id}/edit`)}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded transition text-sm font-medium"
+              >
+                Editar Imagem
+              </button>
+
+              <button
+                onClick={handleDelete}
+                className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded transition text-sm font-medium"
+              >
+                Excluir Imagem
+              </button>
+
+              <button
+                onClick={() => navigate("/gallery")}
+                className="bg-gray-600 hover:bg-gray-700 text-white px-5 py-2 rounded transition text-sm font-medium"
+              >
+                Voltar
+              </button>
+            </div>
           </div>
-        )}
-
-        <h2 className="text-2xl font-semibold">{gallery.title}</h2>
-
-        <p className="text-gray-700">{gallery.description}</p>
-
-        <div className="flex flex-col md:flex-row gap-4 justify-center mt-6">
-          <button
-            onClick={() => navigate(`/gallery/${gallery.id}/edit`)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
-          >
-            Editar Imagem
-          </button>
-
-          <button
-            onClick={handleDelete}
-            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
-          >
-            Excluir Imagem
-          </button>
-
-          <button
-            onClick={() => navigate("/gallery")}
-            className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded"
-          >
-            Voltar
-          </button>
         </div>
       </div>
     </div>
