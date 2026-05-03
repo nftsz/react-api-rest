@@ -1,20 +1,3 @@
-// Tipo centralizado para Produto
-export type Product = {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  image_url: string;
-};
-
-// Tipo para o formulário de Produto
-export type ProductFormData = {
-  name: string;
-  description: string;
-  price: number;
-  image_url: string;
-};
-
 // Tipo de resposta de paginação da API (usado com React Query)
 export type PaginatedResponse<T> = {
   count: number;

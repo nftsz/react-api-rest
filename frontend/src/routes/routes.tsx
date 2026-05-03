@@ -4,10 +4,6 @@ import { useAuth } from "../lib/context/AuthContext";
 
 // Lazy Loading das páginas
 const LoginPage = lazy(() => import("../pages/LoginPage"));
-const DashboardPage = lazy(() => import("../pages/DashboardPage"));
-const ProductFormPage = lazy(() => import("../pages/ProductFormPage"));
-const ProductDetailPage = lazy(() => import("../pages/ProductDetailPage"));
-
 const GalleryPage = lazy(() => import("../pages/GalleryPage"));
 const GalleryFormPage = lazy(() => import("../pages/GalleryFormPage"));
 const GalleryDetailPage = lazy(() => import("../pages/GalleryDetailPage"));
@@ -32,44 +28,6 @@ export function AppRoutes() {
     <Suspense fallback={<p>Carregando...</p>}>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-
-        <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <DashboardPage />
-            </PrivateRoute>
-          }
-        />
-
-        <Route
-          path="/products/new"
-          element={
-            <PrivateRoute>
-              <ProductFormPage />
-            </PrivateRoute>
-          }
-        />
-
-        <Route
-          path="/products/:id"
-          element={
-            <PrivateRoute>
-              <ProductDetailPage />
-            </PrivateRoute>
-          }
-        />
-
-        <Route
-          path="/products/:id/edit"
-          element={
-            <PrivateRoute>
-              <ProductFormPage />
-            </PrivateRoute>
-          }
-        />
-
-        {/* ROTAS DA GALLERY */}
 
         <Route
           path="/gallery"
