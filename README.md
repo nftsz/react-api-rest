@@ -10,49 +10,11 @@ Aplicação fullstack para gerenciamento de uma **galeria de imagens**, desenvol
 
 O sistema permite que usuários autenticados cadastrem, visualizem, editem e removam imagens.
 
----
-
 ## 📸 Preview
 
-> *(adicione aqui prints ou GIFs
-
----
-
-## 🧠 Funcionalidades
-
-### 🔐 Autenticação
-
-* Login e logout com JWT
-* Armazenamento seguro via httpOnly cookies
-* Proteção de rotas no frontend
-
-### 🖼️ Galeria de Imagens
-
-* Cadastro de imagens com título, descrição e imagem (por link)
-* Listagem paginada
-* Visualização de detalhes
-* Edição e exclusão
-* Acesso restrito a usuários autenticados
-
----
-
-## ⚙️ Tecnologias Utilizadas
-
-### Backend
-
-* Django
-* Django REST Framework
-
-### Frontend
-
-* React
-* TypeScript
-* Vite
-* React Hook Form
-* Yup
-* Tailwind CSS
-
----
+<img width="1920" height="1080" alt="Screenshot From 2026-05-03 12-27-51" src="https://github.com/user-attachments/assets/8f0a76fd-1743-457f-8888-4c2cd85e14f5" />
+<img width="1920" height="1080" alt="Screenshot From 2026-05-03 12-27-59" src="https://github.com/user-attachments/assets/84c75a6a-8e63-42c9-b94e-10767ccd1ce5" />
+<img width="1920" height="1080" alt="Screenshot From 2026-05-03 12-28-08" src="https://github.com/user-attachments/assets/4a3dd647-5435-4a62-b5ea-e886d89a1f69" />
 
 ## 📁 Estrutura do Projeto
 
@@ -61,7 +23,6 @@ O sistema permite que usuários autenticados cadastrem, visualizem, editem e rem
 /frontend     # Aplicação React + TypeScript
 ```
 
----
 
 ## 🚀 Como Executar
 
@@ -84,7 +45,6 @@ python manage.py runserver
 Servidor:
 👉 http://localhost:8000
 
----
 
 ### 💻 Frontend
 
@@ -109,8 +69,38 @@ npm run dev
 Acesse:
 👉 http://localhost:5173
 
----
+## 🧠 Funcionalidades
 
+### 🔐 Autenticação
+
+* Login e logout com JWT
+* Armazenamento seguro via httpOnly cookies
+* Proteção de rotas no frontend
+
+### 🖼️ Galeria de Imagens
+
+* Cadastro de imagens com título, descrição e imagem (por link)
+* Listagem paginada
+* Visualização de detalhes
+* Edição e exclusão
+* Acesso restrito a usuários autenticados
+
+
+## ⚙️ Tecnologias Utilizadas
+
+### Backend
+
+* Django
+* Django REST Framework
+
+### Frontend
+
+* React
+* TypeScript
+* Vite
+* React Hook Form
+* Yup
+* Tailwind CSS
 
 ## 🎯 Objetivo do Projeto
 
