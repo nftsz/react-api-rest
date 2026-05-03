@@ -28,7 +28,7 @@ function LoginPage() {
   const onSubmit = async (data: LoginFormInputs) => {
     try {
       await login(data.username, data.password);
-      navigate("/");
+      navigate("/gallery/");
     } catch (error) {
       alert("Erro ao fazer login. Verifique suas credenciais.");
     }
