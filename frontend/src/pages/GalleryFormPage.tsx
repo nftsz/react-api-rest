@@ -32,7 +32,7 @@ function GalleryFormPage() {
 
   useEffect(() => {
     if (id) {
-      api.get(`/api/v1/galleries/${id}/`).then((res) => {
+      api.get(`/api/v1/gallery/${id}/`).then((res) => {
         const gallery = res.data;
 
         setValue("title", gallery.title);
@@ -45,9 +45,9 @@ function GalleryFormPage() {
   const onSubmit = async (data: GalleryFormData) => {
     try {
       if (id) {
-        await api.put(`/api/v1/galleries/${id}/`, data);
+        await api.put(`/api/v1/gallery/${id}/`, data);
       } else {
-        await api.post("/api/v1/galleries/", data);
+        await api.post("/api/v1/gallery/", data);
       }
 
       navigate("/gallery");

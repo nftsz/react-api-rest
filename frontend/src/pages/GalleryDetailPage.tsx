@@ -12,14 +12,14 @@ function GalleryDetailPage() {
     error,
   } = useQuery({
     queryKey: ["gallery", id],
-    queryFn: () => api.get(`/api/v1/galleries/${id}/`).then((res) => res.data),
+    queryFn: () => api.get(`/api/v1/gallery/${id}/`).then((res) => res.data),
     enabled: !!id,
   });
 
   const handleDelete = async () => {
     if (confirm("Tem certeza que deseja excluir esta imagem?")) {
       try {
-        await api.delete(`/api/v1/galleries/${id}/`);
+        await api.delete(`/api/v1/gallery/${id}/`);
         navigate("/gallery");
       } catch (error) {
         alert(`Erro ao excluir imagem: ${error}`);

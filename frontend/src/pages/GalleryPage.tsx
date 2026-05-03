@@ -15,9 +15,9 @@ function GalleryPage() {
   const [page, setPage] = useState(1);
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["galleries", page],
+    queryKey: ["gallery", page],
     queryFn: () =>
-      api.get(`/api/v1/galleries/?page=${page}`).then((res) => res.data),
+      api.get(`/api/v1/gallery/?page=${page}`).then((res) => res.data),
   });
 
   if (isLoading)
