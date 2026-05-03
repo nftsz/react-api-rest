@@ -1,12 +1,6 @@
-from myapp.models import Product, Gallery
+from myapp.models import Gallery
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenRefreshSerializer
-
-
-class ProductSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Product
-        fields = '__all__'
 
 
 class CookieTokenRefreshSerializer(TokenRefreshSerializer):
