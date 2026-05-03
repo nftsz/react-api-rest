@@ -34,3 +34,16 @@ export type LoginFormInputs = {
   username: string;
   password: string;
 };
+
+export type Gallery = {
+  id: number;
+  name: string;
+  description: string;
+  image_url: string;
+};
+
+export type GalleryFormData = {
+  name: string;
+  description: string;
+  image_url: string;
+};
