@@ -6,7 +6,6 @@ import * as yup from "yup";
 import api from "../services/api";
 import type { GalleryFormData } from "../lib/types/types";
 
-
 const schema = yup.object().shape({
   name: yup.string().required("Título obrigatório"),
   description: yup.string().required("Descrição obrigatória"),
@@ -53,44 +52,71 @@ function GalleryFormPage() {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gray-100">
+    <div className="fixed inset-0 flex items-center justify-center  p-4">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-white p-8 rounded-lg shadow-xl w-full max-w-md"
+        className="bg-white rounded-xl shadow-md w-full max-w-md overflow-hidden"
       >
-        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
-          {id ? "Editar Imagem" : "Nova Imagem"}
-        </h1>
+        <div className="p-6 md:p-8 space-y-5">
+          <h1 className="text-2xl font-light text-gray-800 text-center">
+            {id ? "Editar Imagem" : "Nova Imagem"}
+          </h1>
 
-        <input
-          {...register("name")}
-          placeholder="Título"
-          className="text-gray-500 w-full p-3 mb-4 border border-gray-300 rounded"
-        />
-        <p className="text-red-500 text-sm mb-2">{errors.name?.message}</p>
+          <div>
+            <input
+              {...register("name")}
+              placeholder="Título"
+              className="w-full px-4 py-2.5 text-gray-700 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400 transition"
+            />
+            {errors.name && (
+              <p className="text-red-500 text-xs mt-1">
+                {errors.name?.message}
+              </p>
+            )}
+          </div>
 
-        <textarea
-          {...register("description")}
-          placeholder="Descrição"
-          className="text-gray-500 w-full p-3 mb-4 border border-gray-300 rounded"
-        />
-        <p className="text-red-500 text-sm mb-2">
-          {errors.description?.message}
-        </p>
+          <div>
+            <textarea
+              {...register("description")}
+              placeholder="Descrição"
+              rows={4}
+              className="w-full px-4 py-2.5 text-gray-700 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400 transition resize-none"
+            />
+            {errors.description && (
+              <p className="text-red-500 text-xs mt-1">
+                {errors.description?.message}
+              </p>
+            )}
+          </div>
 
-        <input
-          {...register("image_url")}
-          placeholder="Imagem"
-          className="text-gray-500 w-full p-3 mb-4 border border-gray-300 rounded"
-        />
-        <p className="text-red-500 text-sm mb-4">{errors.image_url?.message}</p>
+          <div>
+            <input
+              {...register("image_url")}
+              placeholder="URL da Imagem"
+              className="w-full px-4 py-2.5 text-gray-700 border border-gray-200 rounded-lg focus:outline-none focus:border-gray-400 transition"
+            />
+            {errors.image_url && (
+              <p className="text-red-500 text-xs mt-1">
+                {errors.image_url?.message}
+              </p>
+            )}
+          </div>
 
-        <button
-          type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold"
-        >
-          {id ? "Atualizar Imagem" : "Cadastrar Imagem"}
-        </button>
+          <button
+            type="submit"
+            className="w-full bg-black hover:bg-gray-800 text-white py-2.5 rounded-lg text-sm font-medium transition"
+          >
+            {id ? "Atualizar Imagem" : "Cadastrar Imagem"}
+          </button>
+
+          <button
+            type="button"
+            onClick={() => navigate("/gallery")}
+            className="w-full bg-black hover:bg-gray-800 text-white py-2.5 rounded-lg text-sm font-medium transition"
+          >
+            Voltar
+          </button>
+        </div>
       </form>
     </div>
   );
