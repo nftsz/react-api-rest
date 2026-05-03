@@ -1,6 +1,6 @@
 # 🖼️ Projeto Fullstack –  Galeria de Imagens com Django REST Framework + ReactJS + TypeScript
-![GitHub top language](https://img.shields.io/github/languages/top/nftsz/react-api-rest) 
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/nftsz/react-api-rest/main)
+![GitHub top language](https://img.shields.io/github/languages/top/nftsz/academic-web-fullstack) 
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/nftsz/academic-web-fullstack/main)
 
 Aplicação fullstack para gerenciamento de uma **galeria de imagens**, desenvolvida com:
 
