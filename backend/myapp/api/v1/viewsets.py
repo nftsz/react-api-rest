@@ -40,5 +40,5 @@ class CustomTokenRefreshView(TokenRefreshView):
 
 
 class GalleryViewSet(viewsets.ModelViewSet):
-    queryset = Gallery.objects.all()
+    queryset = Gallery.objects.all().order_by('-created_at')
     serializer_class = GallerySerializer
