@@ -2,13 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
-
-type Gallery = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-};
+import type { Gallery } from "../lib/types/types";
 
 function GalleryPage() {
   const navigate = useNavigate();
@@ -49,12 +43,12 @@ function GalleryPage() {
             onClick={() => navigate(`/gallery/${gallery.id}`)}
           >
             <img
-              src={gallery.image}
-              alt={gallery.title}
+              src={gallery.image_url}
+              alt={gallery.name}
               className="w-full h-40 object-cover rounded mb-4"
             />
 
-            <h3 className="text-xl font-semibold mb-2">{gallery.title}</h3>
+            <h3 className="text-xl font-semibold mb-2">{gallery.name}</h3>
 
             <p className="text-gray-600 flex-grow overflow-hidden">
               {gallery.description}

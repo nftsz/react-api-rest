@@ -4,17 +4,13 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import * as yup from "yup";
 import api from "../services/api";
+import type { GalleryFormData } from "../lib/types/types";
 
-type GalleryFormData = {
-  title: string;
-  description: string;
-  image: string;
-};
 
 const schema = yup.object().shape({
-  title: yup.string().required("Título obrigatório"),
+  name: yup.string().required("Título obrigatório"),
   description: yup.string().required("Descrição obrigatória"),
-  image: yup.string().required("Imagem obrigatória"),
+  image_url: yup.string().required("Imagem obrigatória"),
 });
 
 function GalleryFormPage() {
@@ -35,9 +31,9 @@ function GalleryFormPage() {
       api.get(`/api/v1/gallery/${id}/`).then((res) => {
         const gallery = res.data;
 
-        setValue("title", gallery.title);
+        setValue("name", gallery.name);
         setValue("description", gallery.description);
-        setValue("image", gallery.image);
+        setValue("image_url", gallery.image_url);
       });
     }
   }, [id, setValue]);
@@ -67,11 +63,11 @@ function GalleryFormPage() {
         </h1>
 
         <input
-          {...register("title")}
+          {...register("name")}
           placeholder="Título"
           className="text-gray-500 w-full p-3 mb-4 border border-gray-300 rounded"
         />
-        <p className="text-red-500 text-sm mb-2">{errors.title?.message}</p>
+        <p className="text-red-500 text-sm mb-2">{errors.name?.message}</p>
 
         <textarea
           {...register("description")}
@@ -83,11 +79,11 @@ function GalleryFormPage() {
         </p>
 
         <input
-          {...register("image")}
+          {...register("image_url")}
           placeholder="Imagem"
           className="text-gray-500 w-full p-3 mb-4 border border-gray-300 rounded"
         />
-        <p className="text-red-500 text-sm mb-4">{errors.image?.message}</p>
+        <p className="text-red-500 text-sm mb-4">{errors.image_url?.message}</p>
 
         <button
           type="submit"
