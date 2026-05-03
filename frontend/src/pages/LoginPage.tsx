@@ -28,7 +28,7 @@ function LoginPage() {
   const onSubmit = async (data: LoginFormInputs) => {
     try {
       await login(data.username, data.password);
-      navigate("/");
+      navigate("/gallery/");
     } catch (error) {
       alert("Erro ao fazer login. Verifique suas credenciais.");
     }
@@ -42,10 +42,10 @@ function LoginPage() {
           className="bg-white rounded-3xl shadow-2xl p-10 border border-gray-100"
         >
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-gray-800 mb-2">Bem Vindo</h1>
+            <h1 className="text-4xl font-bold text-gray-800 mb-2">Bem Vindo(a)</h1>
 
             <p className="text-gray-500 text-sm">
-              Faça login para acessar sua conta
+              Faça login para acessar sua galeria
             </p>
           </div>
 
